@@ -10,13 +10,17 @@ function App() {
   const [result, setResult] = useState(0); 
   
   function plus(e) {
-    if (resultRef === 0 || <input ref={null}/> ){
-      e.preventDefault()
+    e.preventDefault();
+    const inputValue = inputRef.current.value;
+
+    if (inputValue === '' || isNaN(inputValue)) {
+      alert('Please enter a valid number');
+    } else {
+      setResult((prevResult) => prevResult + Number(inputValue));
+      inputRef.current.value = ''; // Clear the input value
+      inputRef.current.placeholder = 'Add your number'; // Set placeholder
     }
-    else(<input ref = {null}/>){
-      setResult((result)=> result + Number(inputRef.current.value));
-    }
-  }; 
+  }
  
   function minus(e) { 
   	 
@@ -48,12 +52,11 @@ function App() {
           {result}
         </p> 
         <input
-          pattern="[1-9]" 
           ref={inputRef} 
           type="number" 
           placeholder="Type a number" 
         /> 
-        <button onClick={plus}>add</button> 
+        <button type="submit" onClick={plus}>add</button> 
         {/* Add the subtract button */} 
         {/* Add the multiply button */} 
         {/* Add the divide button */} 
