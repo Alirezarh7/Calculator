@@ -1,31 +1,19 @@
 import React from "react";
+//import Buttom from '../Button/Button'
+//import Add from '../Add/Add'
 import { useRef } from "react";
+const resultRef = useRef(null);
+const inputRef = useRef(null);
 
-
-const Form =()=>{
-    const inputRef = useRef(null); 
-    const resultRef = useRef(null);
-    return(
-        <div className="App"> 
-        <div> 
-        <h1>Simplest Working Calculator</h1> 
-        </div> 
-        <form> 
+export default function Form(){
+    <form>
         <p ref={resultRef}> 
+          {result}
         </p> 
         <input
-            ref={inputRef} 
-            type="number" 
-            placeholder="Type a number" 
+          ref={inputRef} 
+          type="number" 
+          placeholder="Type a number" 
         /> 
-         
-        {/* Add the subtract button */} 
-        {/* Add the multiply button */} 
-        {/* Add the divide button */} 
-        {/* Add the resetInput button */} 
-        {/* Add the resetResult button */} 
-        </form> 
-    </div>
-    ) 
+    </form>
 }
-export default Form ;
