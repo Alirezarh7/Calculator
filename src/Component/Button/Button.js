@@ -1,4 +1,11 @@
-import React, { Children } from "react";
+import React from "react";
 
+const Button = ({ onClick, children }) => {
+  return (
+    <button type="button" onClick={onClick}>
+      {children}
+    </button>
+  );
+};
 
-<button type="submit" onClick={onClick}>{Children}</button>
+export default Button;
